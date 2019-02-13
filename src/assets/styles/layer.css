@@ -1,0 +1,21 @@
+.vl-notify.vl-notify-main {
+  background-color: #111E4C !important;
+  border: 0 !important;
+}
+.vl-notify.vl-notify-alert h2.vl-notice-title {
+  color: #4fd3ea;
+  background-color: #061135 !important;
+}
+/* 标题字体 */
+.vl-notify.vl-notify-alert h2.vl-notice-title {
+  font-size: 1.375rem !important;
+  border: 0 !important;
+  /* background-color: red !important; */
+}
+.vl-notify.vl-notify-alert h2.vl-notice-title .icon-remove:before {
+  font-size: 1.5rem;
+  color: #4fd3ea;
+}
+/* *, :after, :before {
+  overflow: hidden !important;
+} */

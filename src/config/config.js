@@ -1,0 +1,1 @@
+export let baseUrl = '域名-地址'
