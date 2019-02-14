@@ -2,11 +2,15 @@ import Vue from 'vue'
 import Router from 'vue-router'
 // import MapP from './components/Map.vue'
 // import MaskMap from './components/MaskMap.vue'
-import HelloWorld from './components/HelloWorld.vue'
 // 异步按需加载
 const MapP = resolve => require(['./components/Map.vue'], resolve) 
-const MaskMap = resolve => require(['./components/MaskMap.vue'], resolve)
-const T1 = resolve => require(['./components/Test1.vue'], resolve)
+// 异步按需加载
+const MaskMap = function(resolve) {
+  return require(['./components/MaskMap.vue'], resolve)
+}
+// 非按需加载
+import HelloWorld from './components/HelloWorld.vue'
+const T1 = require(['./components/Test1.vue'])
 
 Vue.use(Router)
 export default new Router({
