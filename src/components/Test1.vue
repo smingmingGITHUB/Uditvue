@@ -13,8 +13,7 @@
     <i class="iconfont icon-yuming"></i>
     <i class="iconfont icon-ios-airplane"></i>
     <br>
-    <!-- <img src="require(public/images/123.png)" /> -->
-    <img v-lazy="imgUrl" width="600px">
+    <img v-lazy="imgUrl" width="600px" @click="sendContent">
   </div>
 </template>
 <script>
@@ -31,9 +30,10 @@ Vue.component(Button.name, Button)
 /*eslint-disable */
 export default {
   name: '',
+  props: ['content'],
   data() {
     return {
-      name: '',
+      name: 'Test1',
       imgUrl: ff,
       fetterData: [
         { name: 'a', num: 14 },
@@ -48,13 +48,19 @@ export default {
   computed: { ...mapGetters(['getToken']) }, // 取
   mounted() {
     this.$nextTick(() => {
-      this.filter()
-      this.getCont()
+      console.log(this.content)
+      this.filter() // js条件筛选
+      this.getCont() // 全局变量set
       console.log('cookie缓存:' + get().Token)
     })
   },
   /*eslint-disable */
   methods: {
+    // 发送消息给父组件
+    sendContent() {
+      // this.$route.push('/')
+      this.$emit('childContent', '我是被传递给父组件')
+    },
     ...mapMutations(['SET_TOKEN']), // 存
     getCont() {
       let _this = this
