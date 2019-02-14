@@ -29,3 +29,5 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 npm install vue-lazyload --save-dev 懒加载插件
+
+功能说明在test1.vue中，我比较懒就不改了
