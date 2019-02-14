@@ -77,6 +77,7 @@ export default {
       // 对象 
       let cons = { name: 'a'}
       let obj = fetter(cons, this.fetterData)
+      console.log()
       console.log(list)
       console.log(obj)
       console.log(list + '>>>>>>>' + JSON.parse(JSON.stringify(obj))[0].name)
