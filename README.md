@@ -61,5 +61,5 @@ npm install vue-lazyload --save-dev 懒加载插件
         store.js: vuex存储数据的store,可以在各个页面中共用
 
 
-功能说明在test1.vue中，我比较懒就不改了
+功能说明在test1.vue中，我比较懒就不在这里记录了
 ```
