@@ -1,7 +1,7 @@
 <template>
   <div id="maskMap">
     <h1>
-      <router-link to="/map">maskMap</router-link>
+      <router-link to="/">maskMap</router-link>
     </h1>
     <div id="container" style="width: 100%; height: 500px"></div>
     <div id="panel"></div>

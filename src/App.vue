@@ -2,7 +2,11 @@
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <router-view/>
+    <!-- 路由前进与后退组件是否缓存 -->
+    <keep-alive>
+      <router-view v-if="!$route.meta.keepAlive"/>
+    </keep-alive>
+     <router-view v-if="$route.meta.keepAlive"/>
   </div>
 </template>
 

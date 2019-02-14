@@ -18,7 +18,8 @@ export default new Router({
     {
       path: '/',
       name: 'map',
-      component: MapP
+      component: MapP,
+      meta:{keepAlive: false} // false 不缓存，true 缓存
     },
     {
       path: '/T1',
@@ -34,7 +35,8 @@ export default new Router({
     {
       path: '/maskMap',
       name: 'maskMap',
-      component: MaskMap
+      component: MaskMap,
+      meta:{keepAlive: true}
     }
   ]
 })
