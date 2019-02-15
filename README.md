@@ -59,7 +59,8 @@ npm install vue-lazyload --save-dev 懒加载插件
         index: 默认的页面
         utils: 工具类,比如已经封装好的request.js网络请求封装工具类
         store.js: vuex存储数据的store,可以在各个页面中共用
-
+        
+fcitx -r 重启Ubuntu内部程序
 
 功能说明在test1.vue中，我比较懒就不在这里记录了
 ```
