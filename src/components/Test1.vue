@@ -12,6 +12,7 @@
     <input v-model="getToken">
     <i class="iconfont icon-yuming"></i>
     <i class="iconfont icon-ios-airplane"></i>
+    <Excel></Excel>
     <br>
     <img v-lazy="imgUrl" width="600px" @click="sendContent">
   </div>
@@ -19,6 +20,7 @@
 <script>
 // import ff from 'public/images/app.svg'
 import ff from '../../public/images/123.png'
+import Excel from './excel'
 import Vue from 'vue'
 import { Button } from 'element-ui'
 import MaskMap from './MaskMap'
@@ -44,7 +46,7 @@ export default {
     }
   },
   // 组件名称
-  components: {},
+  components: { Excel },
   computed: { ...mapGetters(['getToken']) }, // 取
   mounted() {
     this.$nextTick(() => {

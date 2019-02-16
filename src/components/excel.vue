@@ -1,22 +1,18 @@
 <template>
   <div id>
-    <button @click="exportExcel"></button>
+    <el-button type="success" @click="exportExcel">导出Excel</el-button>
     <el-table cell-mouse-enter="#" class="list" :data="listdata" ref="tableData">
-      <el-table-column align="center" prop="reportUnit" label="报告单位" width="150"></el-table-column>
-      <el-table-column align="center" prop="reportMan" label="上报人" width="100"></el-table-column>
-      <el-table-column align="center" prop="happentime" label="发生时间" width="150"></el-table-column>
-      <el-table-column align="center" prop="eventPlace" label="发生地点" width="180"></el-table-column>
-      <el-table-column align="center" prop="eventPassing" label="事件经过"></el-table-column>
-      <el-table-column align="center" prop="eventDetail" label="人员伤亡及设施损坏情况"></el-table-column>
-      <el-table-column align="center" prop="eventLevel" label="事故等级" width="120"></el-table-column>
+      <el-table-column align="center" prop="name" label="姓名" width="150"></el-table-column>
+      <el-table-column align="center" prop="sex" label="sex" width="100"></el-table-column>
     </el-table>
   </div>
 </template>
 <script>
 import Vue from 'vue'
-import { Table, TableColumn } from 'element-ui'
+import { Table, TableColumn, Button } from 'element-ui'
 Vue.component(Table.name, Table)
 Vue.component(TableColumn.name, TableColumn)
+Vue.component(Button.name, Button)
 
 import FileSaver from 'file-saver'
 import XLSX from 'xlsx'
@@ -24,9 +20,14 @@ export default {
   name: '',
   data() {
     return {
-      listdata: {}
+      listdata: [
+        {name: '贾宝玉', sex: '男'},
+        {name: '林黛玉', sex: '女'},
+        {name: '薛宝钗', sex: '女'}
+      ]
     }
   },
+  /* eslint-disable */
   methods: {
     exportExcel() {
       /* generate workbook object from table */

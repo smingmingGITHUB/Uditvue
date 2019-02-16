@@ -50,6 +50,8 @@ vue create 项目名称
 
 npm install vue-lazyload --save-dev 懒加载插件
 
+npm install --save xlsx file-saver 导出excel
+
     src源代码目录:
         api: 存放网络请求接口配置,建议分模块文件.user为user.js,login为login.js,
         比如示例test模块为test.js
