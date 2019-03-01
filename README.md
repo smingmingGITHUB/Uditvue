@@ -65,4 +65,18 @@ npm install --save xlsx file-saver 导出excel
 fcitx -r 重启Ubuntu内部程序
 
 功能说明在test1.vue中，我比较懒就不在这里记录了
+
+vuex全局数据存/取 方法调用
+import { mapGetters，mapMutations } from 'vuex'
+
+...mapGetters(['getUserInfo', 'getPermissions', 'getToken'])
+
+...mapMutations(['setAccumulativeInfo', 'setListGIS', 'setWasteRecyceTrend', 'setWastePickle']),
+
+this.loading = true
+this.$store.dispatch('login', this.ruleForm).then(() => {
+    this.loading = false
+}).catch(() => {
+    this.loading = false
+})
 ```
