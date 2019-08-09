@@ -1,4 +1,17 @@
 const path = require('path')
+const titles = require('./title.js')
+const glob = require('glob')
+const pages = {}
+
+glob.sync('./src/pages/**/main.js').forEach(path => {
+  const chunk = path.split('./src/pages/')[1].split('/main.js')[0]
+  pages[chunk] = {
+    entry: path,
+    template: 'public/index.html',
+    title: titles[chunk],
+    chunks: ['chunk-vendors', 'chunk-common', chunk]
+  }
+})
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -23,7 +36,8 @@ module.exports = {
     //   }
     // }, // 配置多个代理
   },
-  // 多页面配置
+  pages, // 多页面配置（方法封装）
+  // 多页面配置（传统配置）
   // pages: {
   //   index: {
   //     // 页面的入口文件
@@ -39,12 +53,38 @@ module.exports = {
   // },
 
   productionSourceMap: false,
+    // 第三方插件配置
+  pluginOptions: {
+    // ...
+    'style-resources-loader': {
+      test: /\.less$/,
+      loader: 'style-loader!css-loader!less-loader',
+    }
+  },
   lintOnSave: true,
   // 路径代理
   chainWebpack: config => {
     config.resolve.alias
       .set('@', resolve('src'))
       .set('vue$', 'vue/dist/vue.esm.js')
+    config.module.rule('compile')
+      .test(/\.js$/)
+      .include
+      .add(resolve('src'))
+      .add(resolve('/node_modules/element-ui/src'))
+      .add(resolve('/node_modules/element-ui/packages'))
+      .add(resolve('/node_modules/_element-ui@2.10.1@element-ui/src'))
+      .add(resolve('/node_modules/_element-ui@2.10.1@element-ui/packages'))
+      .end()
+      .use('babel')
+      .loader('babel-loader')
+      .options({
+        presets: [
+          ['@babel/preset-env', {
+            modules: false
+          }]
+        ]
+      })
   }
   //      // 第三方插件配置
   //  pluginOptions: {
